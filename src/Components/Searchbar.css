@@ -4,9 +4,30 @@ img {
 }
 
 input {
-    width: 750px;
+    width: 60%;
     height: 32px;
     border-radius: 16px;
     padding-left: 12px;
     margin-left : 8px;
+}
+
+.results-container {
+   background-color: white;
+   width: 60%;
+   display: inline-block;
+   color: black;
+   margin-left: 12px;
+   margin-top: 2px;
+   text-align: start;
+   padding: 4px;
+}
+
+.results-container-item {
+    padding : 8px;
+    color: black;
+}
+
+.results-container-item:hover {
+    color: #0010a1;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }

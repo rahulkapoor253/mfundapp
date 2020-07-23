@@ -6,7 +6,7 @@
   background-color: #292929;
   min-height: 100vh;
   display: flex;
-  padding: 0px 100px;
+  padding: 20px 100px;
   flex-direction: column;
   color: white;
 }
@@ -19,14 +19,13 @@
 
 .funds-title {
   text-align: center;
-  margin-top: 14vh;
   font-family: 'Open Sans';
   font-weight: 600;
   font-size: 36px;
+  margin-top: 14vh;
 }
 
 .logo-img {
-  height: 40px;
   width: 40px;
 }
 
@@ -50,9 +49,12 @@
   padding: 14px;
   margin-left: 5%;
   margin-right: 5%;
+  text-align: center;
 }
 
 .card-btn {
+  align-items: center;
+  text-align: center;
   margin-top: 40px;
   width: 100%;
 }
