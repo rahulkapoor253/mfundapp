@@ -3,7 +3,7 @@ img {
     width: 42px;
 }
 
-input {
+.input-field {
     width: 60%;
     height: 32px;
     border-radius: 16px;

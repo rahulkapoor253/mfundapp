@@ -10,3 +10,29 @@
     flex-direction: column;
     color: white;
   }
+
+  .cagr-title {
+    text-align: start;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 5vh;
+  }
+
+  .net-value {
+    text-align: start;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    margin-top: 2vh;
+  }
+
+  .input-amount {
+    width: 15%;
+    height: 24px;
+    margin-top: 2vh;
+}
+
+.input-years {
+    width: 15%;
+    height: 24px;
+}

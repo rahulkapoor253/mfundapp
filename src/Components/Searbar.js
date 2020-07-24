@@ -47,7 +47,7 @@ class Searchbar extends React.Component {
         name='search'
         style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
       />
-        <input type="text" onChange={this.handleInputFund} value={this.state.searchInput} placeholder="Choose a Mutual fund and see how much wealth you can accumulate over a long period of time"></input>
+        <input className="input-field" type="text" onChange={this.handleInputFund} value={this.state.searchInput} placeholder="Choose a Mutual fund and see how much wealth you can accumulate over a long period of time"></input>
         
         {this.state.fundsData.length > 0 &&<ListGroup className="results-container">{fundSearch}</ListGroup>}
     </div>
