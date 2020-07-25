@@ -36,3 +36,15 @@
     width: 15%;
     height: 24px;
 }
+
+.calc-btn {
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  width: 15%;
+}
+
+.calc-btn:hover {
+  background-color: #363636;
+  color: white;
+}

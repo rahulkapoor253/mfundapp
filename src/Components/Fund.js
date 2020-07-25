@@ -16,7 +16,7 @@ constructor(props) {
         navBeg : 0,
         navEnd : 0,
         annualGrowthRate : null,
-        investYears : 7,
+        investYears : 5,
         investAmount : 100000,
         netAmount : null
     }
@@ -24,7 +24,9 @@ constructor(props) {
 
 calculateNetAmount() {
     const interestVal = 1 + ( this.state.annualGrowthRate / 100 );
-    const finalAmount = this.state.investAmount * Math.pow(interestVal, this.state.investYears);
+    const finalAmount = this.state.investAmount * (Math.pow(interestVal, this.state.investYears));
+    console.log(this.state.investYears);
+    console.log(this.state.investAmount);
     this.setState({
         netAmount : finalAmount.toFixed(2)
     })
@@ -45,6 +47,7 @@ calcTotalYears(dt2, dt1) {
     const powerVal = (1 / totalYears);
     const CAGR = Math.pow(val, powerVal) - 1;
 
+    console.log(CAGR * 100);
     this.setState({
         annualGrowthRate : CAGR * 100
     })
@@ -55,19 +58,23 @@ calcTotalYears(dt2, dt1) {
  }
 
  handleAmountChange = (event) => {
-    const amount = parseInt(event.target.value);
-    this.setState({
-        investAmount : amount
-    })
-
-    this.calculateNetAmount();
+     console.log(event.target.value);
+        const amount = event.target.value;
+        this.setState({
+            investAmount : amount
+        })
  }
 
  handleYearChange = (event) => {
-     const years = parseInt(event.target.value);
-     this.setState({
-         investYears : years
-     })
+        console.log(event.target.value);
+        const years = event.target.value;
+        this.setState({
+            investYears : years
+        })
+
+ }
+
+ handleNetAmountCalculation = () => {
      this.calculateNetAmount();
  }
 
@@ -150,6 +157,7 @@ render() {
                     <h2 className="cagr-title">annual growth rate - {this.state.annualGrowthRate.toFixed(2)} %</h2>
                     <input className="input-years" type="number" value={this.state.investYears} placeholder="Years" onChange={this.handleYearChange}/> Years <br></br>
                     <input className="input-amount" type="number" value={this.state.investAmount} placeholder="Amount invested as Lumpsum" onChange={this.handleAmountChange}/> INR as Lumpsum<br></br>
+                    <button className="calc-btn" onClick={this.handleNetAmountCalculation}>Calculate</button>
                     { this.state.netAmount && <h2 className="net-value">Total expected amount (investment + gains) - {this.state.netAmount} INR</h2> }
                 </div> }
             </header>
