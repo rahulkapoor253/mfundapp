@@ -3,6 +3,7 @@ import './Fund.css';
 import CanvaJSReact from '../canvasjs.react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
+import Home from './Home';
 
 class Fund extends React.Component {
 
@@ -10,7 +11,7 @@ constructor(props) {
     super(props);
     console.log(props);
     this.state = {
-        schemeCode : props.location.state === undefined ? null : props.location.state.schemeCode,
+        schemeCode : props.location.state === undefined ? null : props.location.state,
         dataPoints : [],
         navBeg : 0,
         navEnd : 0,
@@ -107,7 +108,11 @@ if(this.state.schemeCode != null) {
 render() {
 
     if (this.state.schemeCode == null) {
-        return <Redirect to={{
+        return <Redirect
+        from={{
+            pathname : '/fund'
+        }}
+        to={{
           pathname: '/'
       }} />
       }
@@ -136,6 +141,8 @@ render() {
     return (
         <div className="Fund">
              <header className="Fund-header">
+                 <Home page="fund"/>
+
                 <CanvaJSReact.CanvasJSChart options = {options} 
                     onRef={ref => this.chart = ref}
                 />

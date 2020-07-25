@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import logo from './logo.png';
 import Searchbar from './Components/Searbar';
 import {Card, Button} from 'react-bootstrap';
-import {Redirect} from 'react-router-dom';
+import history from './Components/history';
+import Home from './Components/Home';
 
 class App extends React.Component {
   
@@ -40,17 +40,17 @@ class App extends React.Component {
   render() {
 
     if (this.state.redirect) {
-      return <Redirect to={{
-        pathname: this.state.redirect,
-        state: { schemeCode: this.state.schemeCode }
-    }} />
+      history.push({
+        pathname : this.state.redirect,
+        state : this.state.schemeCode
+      });
     }
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="logo-title">Mfunds <img className="logo-img" alt="logo" src={logo}/></h1>
-        
+        <Home page="home"/>
+
         <div className="search-container">
            <Searchbar handleFundDropddown={this.handleFundSelect} data={this.state.fundsData} searchTerm={this.state.searchVal}/>
         </div>

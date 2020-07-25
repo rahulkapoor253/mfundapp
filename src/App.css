@@ -58,3 +58,8 @@
   margin-top: 40px;
   width: 100%;
 }
+
+.card-btn:hover {
+  background-color: #363636;
+  color: white;
+}

@@ -1,0 +1,13 @@
+.logo-title {
+    font-family: 'Open Sans';
+    font-weight: 800;
+    font-size: 42px;
+  }
+
+  .logo-title:hover {
+      cursor: pointer;
+  }
+  
+  .logo-img {
+    width: 40px;
+  }
