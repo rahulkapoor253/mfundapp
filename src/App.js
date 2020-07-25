@@ -11,9 +11,6 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      fund1SchemCode : '120152',
-      fund2SchemeCode : '118834',
-      fund3SchemeCode : '112323',
       fundsData : [],
       searchVal : '',
       redirect : null,
@@ -30,6 +27,14 @@ class App extends React.Component {
     })
     //load new component with schemeCode and call api to fetch fund data
 
+  }
+
+  handleBestFunds = (event) => {
+    console.log(event.target.name);
+    this.setState({
+      redirect : '/fund',
+      schemeCode : event.target.name
+    })
   }
 
   render() {
@@ -56,21 +61,21 @@ class App extends React.Component {
         <Card className="card-container">
           <Card.Body>
            <Card.Title>Kotak Bluechip Fund - Growth - Direct</Card.Title>
-            <Button className="card-btn" variant="primary" size="lg" block>Choose fund</Button>
+            <Button className="card-btn" variant="primary" name="120152" size="lg" block onClick={this.handleBestFunds}>Choose fund</Button>
           </Card.Body>
         </Card>
 
         <Card className="card-container">
           <Card.Body>
            <Card.Title>Mirae Asset Emerging Bluechip Fund - Direct Plan - Growth</Card.Title>
-            <Button className="card-btn" variant="primary" size="lg" block>Choose fund</Button>
+            <Button className="card-btn" variant="primary" name="118834" size="lg" block onClick={this.handleBestFunds}>Choose fund</Button>
           </Card.Body>
         </Card>
 
         <Card className="card-container">
           <Card.Body>
            <Card.Title>Axis Long Term Equity Fund - Growth</Card.Title>
-            <Button className="card-btn" variant="primary" size="lg" block>Choose fund</Button>
+            <Button className="card-btn" variant="primary" name="112323" size="lg" block onClick={this.handleBestFunds}>Choose fund</Button>
           </Card.Body>
         </Card>
         </div>

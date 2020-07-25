@@ -16,21 +16,18 @@ constructor(props) {
         navEnd : 0,
         annualGrowthRate : null,
         investYears : 7,
-        investAmount : 5000,
+        investAmount : 100000,
         netAmount : null
     }
 }
 
 calculateNetAmount() {
-    // const numberOfPayments = 12 * this.state.investYears;
-    // const periodicInterestRate = this.state.annualGrowthRate / 1200 ;
-    // const tenureVal = Math.pow((1 + periodicInterestRate), numberOfPayments);
-    // const maturityAmount = this.state.investAmount * (tenureVal - 1)  * (1 + periodicInterestRate);
-    // const finalAmount = maturityAmount / periodicInterestRate;
+    const interestVal = 1 + ( this.state.annualGrowthRate / 100 );
+    const finalAmount = this.state.investAmount * Math.pow(interestVal, this.state.investYears);
+    this.setState({
+        netAmount : finalAmount.toFixed(2)
+    })
 
-    // this.setState({
-    //     netAmount : finalAmount
-    // })
 }
 
 calcTotalYears(dt2, dt1) {
@@ -145,7 +142,7 @@ render() {
                 { this.state.annualGrowthRate && <div>
                     <h2 className="cagr-title">annual growth rate - {this.state.annualGrowthRate.toFixed(2)} %</h2>
                     <input className="input-years" type="number" value={this.state.investYears} placeholder="Years" onChange={this.handleYearChange}/> Years <br></br>
-                    <input className="input-amount" type="number" value={this.state.investAmount} placeholder="Amount invested as SIP" onChange={this.handleAmountChange}/> INR / per month<br></br>
+                    <input className="input-amount" type="number" value={this.state.investAmount} placeholder="Amount invested as Lumpsum" onChange={this.handleAmountChange}/> INR as Lumpsum<br></br>
                     { this.state.netAmount && <h2 className="net-value">Total expected amount (investment + gains) - {this.state.netAmount} INR</h2> }
                 </div> }
             </header>
